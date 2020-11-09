@@ -11,13 +11,15 @@ for i in range(6):
         try:
             selected_numbers.append(int(input(f"Enter a {name_numbers[i]} number: ")))
             if 0 < selected_numbers[i] < 50:
-                if selected_numbers[i] in selected_numbers:
+                if i == 0:
+                    break
+                elif selected_numbers[i] not in selected_numbers[0:i]:
                     break
                 else:
                     selected_numbers.pop(i)
                     print("""
-            You already entered that number!
-            Choose a different number.
+                You already entered that number!
+                Choose a different number.
                     """)
             else:
                 selected_numbers.pop(i)
