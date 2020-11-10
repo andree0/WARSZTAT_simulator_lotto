@@ -8,9 +8,18 @@ name_numbers = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth']
 # selecting six numbers and checking if the numbers meet the conditions
 for i in range(6):
     while True:
+        # try to change value input from string to int and add it to list
         try:
             selected_numbers.append(int(input(f"Enter a {name_numbers[i]} number: ")))
+        except ValueError:
+            print("""
+            It's not a number!
+            """)
+        # if no error is reported, follow the rest of the code
+        else:
+            # condition that the number is between 1 and 49
             if 0 < selected_numbers[i] < 50:
+                # condition that the number is not in the list
                 if i == 0:
                     break
                 elif selected_numbers[i] not in selected_numbers[0:i]:
@@ -18,8 +27,8 @@ for i in range(6):
                 else:
                     selected_numbers.pop(i)
                     print("""
-                You already entered that number!
-                Choose a different number.
+            You already entered that number!
+            Choose a different number.
                     """)
             else:
                 selected_numbers.pop(i)
@@ -27,10 +36,6 @@ for i in range(6):
             The number is out of range!
             You have to select number between 1 and 49.
                 """)
-        except ValueError:
-            print("""
-            It's not a number!
-            """)
 
 # sort selected numbers from lowest and show them
 selected_numbers.sort()
@@ -44,7 +49,8 @@ all_numbers = [i for i in range(1, 49)]
 s(all_numbers)
 # choice of the first six numbers
 drawn_numbers = all_numbers[0:6]
-# display the drawn numbers
+# sort and display the drawn numbers
+drawn_numbers.sort()
 print(drawn_numbers)
 
 # create a list of hit numbers
