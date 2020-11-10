@@ -1,10 +1,10 @@
 # WARSZTAT_simulator_lotto
 
-###This is a console application.
+#### This is a console application.
 
 To run the simulator lotto, you need to open a terminal on your computer, find the lotto.py file and run it.
 
-###How it works:
+#### How it works:
 
 1. This program will ask you about six number.
 2. First, the program ask you about first number selected.
