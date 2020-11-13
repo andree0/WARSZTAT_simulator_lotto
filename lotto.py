@@ -11,10 +11,10 @@ while i < 6:
     try:
         number = int(input(f"Enter a {name_numbers[i]} number: "))
     except ValueError:
+        number = 0
         print("""
             It's not a number!
             """)
-
     # condition that the number is between 1 and 49
     # condition that the number is not repeated
     # add a number to list
