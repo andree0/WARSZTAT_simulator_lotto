@@ -4,38 +4,28 @@ from random import shuffle as s
 # create a lists
 selected_numbers = []
 name_numbers = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth']
-
+i = 0
 # selecting six numbers and checking if the numbers meet the conditions
-for i in range(6):
-    while True:
-        # try to change value input from string to int and add it to list
-        try:
-            selected_numbers.append(int(input(f"Enter a {name_numbers[i]} number: ")))
-        except ValueError:
-            print("""
+while i < 6:
+    # try to change value input from string to int
+    try:
+        number = int(input(f"Enter a {name_numbers[i]} number: "))
+    except ValueError:
+        print("""
             It's not a number!
             """)
-        # if no error is reported, follow the rest of the code
-        else:
-            # condition that the number is between 1 and 49
-            if 0 < selected_numbers[i] < 50:
-                # condition that the number is not in the list
-                if i == 0:
-                    break
-                elif selected_numbers[i] not in selected_numbers[0:i]:
-                    break
-                else:
-                    selected_numbers.pop(i)
-                    print("""
-            You already entered that number!
-            Choose a different number.
-                    """)
-            else:
-                selected_numbers.pop(i)
-                print("""
-            The number is out of range!
-            You have to select number between 1 and 49.
-                """)
+
+    # condition that the number is between 1 and 49
+    # condition that the number is not repeated
+    # add a number to list
+    if number not in selected_numbers and 0 < number < 50:
+        selected_numbers.append(number)
+        i += 1
+    else:
+        print("""
+            Number have to between 1 and 49.
+            Numbers must not be repeated.
+            """)
 
 # sort selected numbers from lowest and show them
 selected_numbers.sort()
@@ -58,5 +48,5 @@ hit_numbers = [i for i in drawn_numbers if i in selected_numbers]
 
 # show number of hits
 print(f"""
-You hit {len(hit_numbers)} numbers !
+            You hit {len(hit_numbers)} numbers !
 """)
