@@ -1,4 +1,4 @@
-# WARSZTAT_simulator_lotto
+# simulator_lotto
 
 #### This is a console application.
 
